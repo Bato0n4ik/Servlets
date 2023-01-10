@@ -20,7 +20,7 @@ public class FlightServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
-        try(var writeStream = resp.getWriter()){
+        var writeStream = resp.getWriter();
             writeStream.write("<h1> Список перелётов</h1>");
             writeStream.write("<ul>");
             flightService.findAll().forEach(flightDto -> {
@@ -32,9 +32,5 @@ public class FlightServlet extends HttpServlet {
                 """.formatted(flightDto.getId(), flightDto.getDescription()));
             });
             writeStream.write("</ul>");
-        }
-        catch(Exception exc){
-            exc.printStackTrace();
-        }
     }
 }

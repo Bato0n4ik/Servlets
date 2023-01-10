@@ -1,14 +1,12 @@
 package org.andreev.sockets.util;
 
-import org.postgresql.Driver;
-import org.postgresql.core.TypeInfo;
+import lombok.SneakyThrows;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class ConnectionManager {
+public final class ConnectionManager {
 
 
     private final static String URL_KEY = "db.url";
@@ -20,8 +18,9 @@ public class ConnectionManager {
         initDriver();
     }
 
-
-    private ConnectionManager(){}
+    private ConnectionManager() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
 
     public static Connection get(){
         try{
@@ -29,22 +28,18 @@ public class ConnectionManager {
                     PropertiesUtil.getProperty(USER_KEY),
                     PropertiesUtil.getProperty(PASSWORD_KEY));
         }
-        catch(Exception exc){
-            exc.printStackTrace();
-            throw new RuntimeException(exc);
+        catch(SQLException exc){
+           exc.printStackTrace();
         }
+        return null;
     }
 
     private static void initDriver() {
         try{
-            //Class<Driver> driver = Driver.class;
-            //DriverManager.registerDriver(new org.postgresql.Driver());
-            //DriverManagerDataSource ds = new DriverManagerDataSource();
-            //ds.set
             Class.forName("org.postgresql.Driver");
         }
         catch(ClassNotFoundException exc){
-            throw new RuntimeException(exc);
+            exc.printStackTrace();
         }
     }
 }
