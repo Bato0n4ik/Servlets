@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.andreev.sockets.service.TicketService;
+import org.andreev.sockets.util.JSPUtil;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -22,7 +23,12 @@ public class TicketServlet extends HttpServlet {
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
         var flightId =  Long.valueOf(req.getParameter("flightId"));
+        req.setAttribute("tickets", ticketService.findAllByFlightId(flightId));
 
+        req.getRequestDispatcher(JSPUtil.getJspFilesPath("tickets")).include(req,resp);
+
+
+        /*
         try(var streamWriter = resp.getWriter()){
             streamWriter.write("<h2>Купленный билеты<h2>");
 
@@ -38,6 +44,6 @@ public class TicketServlet extends HttpServlet {
         }
         catch(Exception exc){
             exc.printStackTrace();
-        }
+        }*/
     }
 }
