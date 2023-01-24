@@ -15,19 +15,23 @@ import org.andreev.sockets.service.UserService;
 import org.andreev.sockets.util.JSPUtil;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024)
-@WebServlet("/registration")
+@WebServlet(value = "/registration", name = "RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 
     private final UserService userService = UserService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(true){
+            throw new RemoteException();
+        }
         req.setAttribute("roles", Role.values());
         req.setAttribute("genders", Gender.values());
         req.getRequestDispatcher(JSPUtil.getJspFilesPath("registration")).include(req,resp);

@@ -8,7 +8,7 @@
 <body>
 <h1>   Registration Form   </h1>
 
-<img height="280" width="200" src="${pageContext.request.contextPath}/imagesForFirstServlet/users/699116353.jpg" alt="User image">
+<img height="260" width="200" src="${pageContext.request.contextPath}/imagesForFirstServlet/users/699116353.jpg" alt="User image">
 
 <form action="/registration" method="post" enctype="multipart/form-data">
     <label for="name">Name:
