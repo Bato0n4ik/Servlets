@@ -29,9 +29,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(true){
-            throw new RemoteException();
-        }
         req.setAttribute("roles", Role.values());
         req.setAttribute("genders", Gender.values());
         req.getRequestDispatcher(JSPUtil.getJspFilesPath("registration")).include(req,resp);

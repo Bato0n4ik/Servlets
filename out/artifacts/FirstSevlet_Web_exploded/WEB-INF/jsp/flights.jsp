@@ -3,9 +3,11 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
-    <title>Жопа</title>
+    <title>Flights</title>
 </head>
 <body>
+
+    <%@ include file="logout.jsp"%>
 
     <h1> Список перелётов</h1>
     <c:if test="${not empty requestScope.flights}">
