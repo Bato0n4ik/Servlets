@@ -12,7 +12,7 @@ import static org.andreev.sockets.util.UtilPath.*;
 
 @WebFilter("/*")
 public class AuthorizationFilter implements Filter {
-    private final Set<String> PUBLIC_PATHS = Set.of(REGISTRATION, LOGIN, IMAGE);
+    private final Set<String> PUBLIC_PATHS = Set.of(REGISTRATION, LOGIN, IMAGE, LOCALE);
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

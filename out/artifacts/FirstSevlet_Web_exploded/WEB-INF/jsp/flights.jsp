@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <%@ include file="logout.jsp"%>
+    <%@ include file="header.jsp"%>
 
     <h1> Список перелётов</h1>
     <c:if test="${not empty requestScope.flights}">

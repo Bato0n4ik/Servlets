@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebInitParam;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+/*
 @WebFilter(
         servletNames = {
                 "RegistrationServlet"
@@ -15,8 +16,7 @@ import java.nio.charset.StandardCharsets;
                 @WebInitParam(name = "keyOne", value = "valueOne")
         },
         dispatcherTypes = DispatcherType.ERROR
-
-)
+)*/
 public class CharsetFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
